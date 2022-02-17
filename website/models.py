@@ -10,14 +10,14 @@ from sqlalchemy.sql import func
 from datetime import date
 
 
-
+#model za apartman i ogranicenja
 class Apartment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(150))
 
 
 
-
+#model za rezervaciju i ogranicenja
 class Reservation(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(150))
