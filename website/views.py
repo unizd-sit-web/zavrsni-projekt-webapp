@@ -1,7 +1,10 @@
 from datetime import date
+from email.message import Message
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import Apartment, Reservation
 from . import db
+
+
 
 views = Blueprint('views', __name__)
 
@@ -33,8 +36,6 @@ def book():
         hour2 = request.form.get('hour2')
         apartment_id = request.form.get('apartment_id')
         
-        
-
         if len(email) < 4:
             flash('Email is too short.', category='error')
         elif len(name) < 2:
@@ -46,14 +47,13 @@ def book():
             flash('Rezervacija zaprimljena', category='success')
             return redirect(url_for('.checkout'))
             
-
-
     return render_template("book-now.html")
             
 @views.route("/contact")
 def contact():
 
     return render_template("contact.html")
+
 
 @views.route("/book-now/checkout", methods=['GET', 'POST'])
 def checkout():
@@ -65,10 +65,6 @@ def checkout():
 def thanks():
 
     return render_template("thanks.html")
-
-
-
-
 
     
     

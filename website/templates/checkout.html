@@ -2,6 +2,7 @@
 {% block title %}Checkout{% endblock %}
 {% block subtitle %}<h1>Checkout</h1>{% endblock %}
 {% block content2 %}
+<!---------------forma za placanje-------------->
     <div class="inputBox">
         <span>Amount</span>
         <input type="text" name="currency">
@@ -93,6 +94,8 @@
         </div>
         <button type="submit" class="btn btn-primary">submit</button>
     </form>
+
+ <!----------js za rotaciju kartice i unos podataka iz forme na nju----------->   
 <script>
 
     document.querySelector('.card-number-input').oninput = () =>{
