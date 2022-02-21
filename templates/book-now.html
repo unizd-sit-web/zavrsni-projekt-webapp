@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}Book-now{% endblock %}
+{% block subtitle %}<h1>Book now!</h1>{% endblock %}
+{% block content2 %}
+<!---------------------book now content-------------------->
+<!------Izrada tablice za rezervaciju------------->
+<section class="banner">
+    <h2>BOOK APARTMENT NOW!</h2>
+    <div class="card-container">
+        <div class="card-img">
+        </div>
+        <div class="card-content">
+            <h3>Reservation</h3>
+            <form class="form form-horizontal" method="post" role="form">
+                <div class="form-row">
+                    {{ form.hidden_tag() }}
+                    <label for="check_in">Check in:</label>
+                    {{form.check_in (class="form-control")}}
+                    <label for="check_out">Check out:</label>
+                    {{form.check_out (class="form-control")}}
+                </div>
+                <div class="form-row">
+                    <label for="apartment">Apartment: </label>
+                    {{form.apartment (class="form-select")}}
+                </div>
+                <div class="form-row">
+                    <label for="adults">Adults: </label>
+                    {{form.adults (class="form-control")}}
+                    <label for="children">Childrens: </label>
+                    {{form.children (class="form-control")}}
+                </div>
+                <div class="form-row">
+                    <label for="name_booking">Full Name: </label>
+                    {{form.name_booking (class="form-control")}}
+                </div>
+                <div class="form-row">
+                    <label for="email_booking">Email: </label>
+                    {{form.email_booking (class="form-control")}}
+                </div>
+                    <br>
+                <div class="form-row">
+                    {{form.submit(class="btn btn-primary")}}
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!--
+   <section class="banner">
+       <h2>BOOK APARTMENT NOW!</h2>
+       <div class="card-container">
+           <div class="card-img">
+           </div>
+           <div class="card-content">
+               <h3>Reservation</h3>
+               <form method="POST">
+                   <div class="form-row">
+                        <label for="start">Check in:</label>
+                        <input type="date" id="check_in" name="check_in"
+                           value="yyyy-mm-dd"
+                           min="2021-12-01" max="2022-12-31" required>
+                       <select id = "hour1" name="hour1" required>
+                           <option value="hour-select">Select Hour</option>
+                           <option value="8:00">8:00</option>
+                           <option value="10:00">10:00</option>
+                           <option value="12:00">12:00</option>
+                           <option value="14:00">14:00</option>
+                           <option value="16:00">16:00</option>
+                           <option value="18:00">18:00</option>
+                           <option value="20:00">20:00</option>
+                           <option value="22:00">22:00</option>
+                       </select>
+                   </div>
+                   <div class="form-row">
+                    <label for="end">Check out:</label>
+                    <input type="date" id="check_out" name="check_out"
+                       value="yyyy-mm-dd"
+                       min="2021-12-01" max="2022-12-31" required>
+                   <select id="hour2" name="hour2" required aria-label="Default select example">
+                       <option selected>Select Hour</option>
+                       <option value="8:00">8:00</option>
+                       <option value="10:00">10:00</option>
+                       <option value="12:00">12:00</option>
+                       <option value="14:00">14:00</option>
+                       <option value="16:00">16:00</option>
+                       <option value="18:00">18:00</option>
+                       <option value="20:00">20:00</option>
+                       <option value="22:00">22:00</option>
+                   </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="end">Apartment: </label>
+                        <select class="form-select" id="apartment_id" name="apartment_id" aria-label="Default select example" required>
+                            <option selected>Select Apartment</option>
+                            <option value="1">Apartment A1</option>
+                            <option value="2">Apertment A2</option>
+                          </select>
+                    </div>
+                   <div class="form-row">
+                       <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                   </div>
+                   <div class="form-row">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email" required>
+                   </div>
+                   <div class="form-row">
+                    <input type="text" class="form-control" id="phone_num" name="phone_num" placeholder="Phone Number" required>
+                   </div>
+                   <div class="form-row">
+                    <input type="number" class="form-control" id="person" name="person" placeholder="How Many Person?" min="1" max ="6">
+                    <button type="submit" class="btn btn-primary">BOOK APARTMENT</button>
+                </div>
+               </form>
+           </div>
+       </div>
+   </section>
+-->
+   {% endblock %}

@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="F:\Users\Dome\Desktop\Dino\dino IT\WEB PROGRAMIRANJE - zavrsni\Flask-web-app-apartmani\venv"
+VIRTUAL_ENV="F:\Users\Dome\Desktop\Dino\Apartments-flask-app\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
