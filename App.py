@@ -102,6 +102,7 @@ def contact():
         result['message'] = request.form.get('message')
 
         sendContactForm(result)
+        return redirect(url_for('.contact_thanks'))
     return render_template("contact.html")
 
 #Upisi u bazu podataka novu rezervaciju
@@ -145,6 +146,11 @@ def checkout():
 def thanks():
 
     return render_template("thanks.html")
+
+@app.route("/contact/thanks")
+def contact_thanks():
+
+    return render_template("thanks_contact.html")
 
 
 if __name__ == '__main__':
