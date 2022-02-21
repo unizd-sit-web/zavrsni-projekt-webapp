@@ -1,3 +1,4 @@
+from email import message
 from locale import format_string
 from time import strftime
 from unicodedata import name
@@ -55,9 +56,28 @@ class ReservationForm(FlaskForm):
     apartment = SelectField('Choose Apartment', [validators.DataRequired("Choose at least one Apartment")], choices=APARTMENT_CHOICES)
     children = StringField("Children")
     name_booking = StringField("Name",[validators.DataRequired("First Name is Mandatory!")])
-    email_booking = EmailField("email ",[validators.DataRequired("email is Mandatory!")])
+    email_booking = EmailField("email",[validators.DataRequired("Email is Mandatory!")])
     submit = SubmitField("Send")
 
+
+def sendContactForm(result):
+    msg = Message("Contact Form from Lavander Apartments", sender="testing@web-design-johannesburg.com", recipients=["marko.kokioc@gmail.com"])
+    msg.body = """
+    Hello there,
+
+    You just received a contact form.
+
+    Name: {}
+    Email: {}
+    Subject: {}
+    Message: {}
+    
+    
+    regards,
+    Webmaster
+    
+    """.format(result['name'], result['email'], result['subject'], result['message'])
+    mail.send(msg)
 
 @app.route("/home")
 def home():
@@ -71,8 +91,17 @@ def about():
 def gallery():
     return render_template("gallery.html")
 
-@app.route("/contact")
+@app.route("/contact", methods=['GET', 'POST'])
 def contact():
+    if request.method == 'POST':
+        result = {}
+
+        result['name'] = request.form.get('name')
+        result['email'] = request.form.get('email').replace(' ', '')
+        result['subject'] = request.form.get('subject')
+        result['message'] = request.form.get('message')
+
+        sendContactForm(result)
     return render_template("contact.html")
 
 #Upisi u bazu podataka novu rezervaciju
@@ -100,12 +129,13 @@ def checkout():
     obj = Reservation.query.all()
     id = str(obj[-1].id)
     name_to_update = Reservation.query.get_or_404(id)
+    email_guest = Reservation.query.get_or_404(id)
     #Pošalji potvrdu rezervacije na mail.
     #Napravi Update baze podataka jer je rezervacija plaćena
     if request.method == 'POST':
         name_to_update.paid = "paid"
         db.session.commit()
-        msg = Message('Confirmation', sender='marko.kokioc@gmail.com', recipients=['dinobare3@gmail.com'])
+        msg = Message('Confirmation', sender='marko.kokioc@gmail.com', recipients=[email_guest.email_booking])
         msg.body = 'Thank you for your reservation!'
         mail.send(msg) 
         return redirect(url_for('.thanks'))
