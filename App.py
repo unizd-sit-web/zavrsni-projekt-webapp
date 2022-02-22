@@ -47,7 +47,7 @@ class Reservation(db.Model):
     time_created = db.Column(db.String(150))
     paid = db.Column(db.String(150))
 
-#booknow FlaskForm
+#booknow FlaskForma
 APARTMENT_CHOICES = [('Apartment A1', 'A1'), ('Apartment A2', 'A2')]
 class ReservationForm(FlaskForm):
     check_in=DateField("Arrival Date",  [validators.DataRequired("Select Arrival Date")], format='%Y-%m-%d')
@@ -59,7 +59,7 @@ class ReservationForm(FlaskForm):
     email_booking = EmailField("email",[validators.DataRequired("Email is Mandatory!")])
     submit = SubmitField("Send")
 
-
+# Funkcija za slanje forme na mail
 def sendContactForm(result):
     msg = Message("Contact Form from Lavander Apartments", sender="testing@web-design-johannesburg.com", recipients=["marko.kokioc@gmail.com"])
     msg.body = """
@@ -91,6 +91,7 @@ def about():
 def gallery():
     return render_template("gallery.html")
 
+# Šalje mail it Forme za contact na mail vlasnika aplikacije
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
@@ -125,6 +126,7 @@ def book():
         return redirect(url_for('.checkout'))
     return render_template("book-now.html", form=form)
 
+#odglumljeno plaćanje
 @app.route('/book-now/checkout', methods=['GET', 'POST'])
 def checkout():
     obj = Reservation.query.all()
