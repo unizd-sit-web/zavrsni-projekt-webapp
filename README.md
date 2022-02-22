@@ -4,9 +4,11 @@
 # ZASVRŠNI PROJEKT - FLASK WEB APLIKACIJA
 #### autor : Dino Barešić
 
-* Aplikacija se sastoji od više stranica koje predstavljaju aplikaciju za rezervaciju apartmana.Osnovna namjena aplikacije je primiti rezervaciju spremiti je u bazu podataka te nakon "odglumljenog" plaćanja poslati mail potvrde rezervacije. Podaci se spremaju iz Flask forme na stranici (book-now.html) u sqlite bazu podataka. Nakon "plaćanja" u bazi podataka se mijenja red te iste rezervacije iz "not paid" u "paid" te se šalje mail potvrde. Forma na stranici (contact.html) također šalje mail na mail apartmana koji je napravljen za test. Aplikacija je napravljena za jednog korisnika tj. samo gosta jer je takvog sadržaja.
+* Aplikacija se sastoji od više stranica koje predstavljaju aplikaciju za rezervaciju apartmana.Osnovna namjena aplikacije je primiti rezervaciju spremiti je u bazu podataka te nakon "odglumljenog" plaćanja poslati mail potvrde rezervacije. Podaci se spremaju iz Flask forme na stranici (book-now.html) u sqlite bazu podataka. Nakon "plaćanja" u bazi podataka se mijenja red te iste rezervacije iz "not paid" u "paid" te se šalje mail potvrde. Forma na stranici (contact.html) također šalje mail na mail apartmana koji je napravljen za test. Aplikacija je napravljena za jednog korisnika tj. samo gosta.
 <br>
 
 ### Pokretanje aplikacije
-#### 1. Ulazimo u direktorij (zavrsni-projekt-webapp) te pokrenemo "app.py"
-#### 2. 
+#### 1. Ulazimo u direktorij (zavrsni-projekt-webapp) te otvorimo Poweshell-u 
+#### 2. Instalacija sa requirements (pip install -r requirements.txt)
+#### 3. Pokrenemo file "app.py" te ce on automatski aktivirati (venv\Scripts\activate), postaviti sve ostalo i pokreniti aplikaciju
+#### 4. Otvoriti browser te upisati(http://127.0.0.1:5000/home)
