@@ -1,5 +1,6 @@
 from email import message
 from locale import format_string
+from operator import contains
 from time import strftime
 from unicodedata import name
 from flask import Flask, flash, render_template, request, redirect, url_for
@@ -10,7 +11,7 @@ from wtforms import StringField, SubmitField, IntegerField, BooleanField, Hidden
 from wtforms.validators import DataRequired, Email, InputRequired
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import insert, String, Column, DateTime, Date
+from sqlalchemy import insert, String, Column, DateTime, Date, LargeBinary
 from os import path
 from sqlalchemy.sql import func
 
@@ -34,7 +35,7 @@ app.config['MAIL_USERNAME'] = 'marko.kokioc@gmail.com'
 app.config['MAIL_PASSWORD'] = 'markokokioc12'
 mail = Mail(app)
 
-#db model
+#db model za rezervaciju
 class Reservation(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     check_in = db.Column(db.Date())
@@ -46,6 +47,7 @@ class Reservation(db.Model):
     email_booking = db.Column(db.String(150))
     time_created = db.Column(db.String(150))
     paid = db.Column(db.String(150))
+
 
 #booknow FlaskForma
 APARTMENT_CHOICES = [('Apartment A1', 'A1'), ('Apartment A2', 'A2')]
