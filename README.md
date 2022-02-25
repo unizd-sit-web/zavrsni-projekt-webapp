@@ -8,7 +8,10 @@
 <br>
 
 ### Pokretanje aplikacije
-#### 1. Ulazimo u direktorij (zavrsni-projekt-webapp) te otvorimo Poweshell-u 
-#### 2. Instalacija sa requirements (pip install -r requirements.txt)
-#### 3. Pokrenemo file "app.py" te ce on automatski aktivirati (venv\Scripts\activate), postaviti sve ostalo i pokreniti aplikaciju
-#### 4. Otvoriti browser te upisati(http://127.0.0.1:5000/home)
+#### 1. Ulazimo u direktorij (zavrsni-projekt-webapp) te otvorimo Poweshell-u i Instaliramo virtualno okruženje - "python -m venv venv"
+#### 2. Aktiviramo virtualno okruženje - "venv\Scripts\Activate.ps1"
+#### 3. Instalacija sa requirements - "pip install -r requirements.txt"
+#### 4.postavimo aplikaciju - "($env:FLASK_APP = ”app.py”)"
+#### 5.Postavimo debug mode - "$env:FLASK_DEBUG = 1"
+#### 6.Pokrenemo flask aplikaciju naredbom "flask run"
+#### 5. Otvoriti browser te upisati(http://127.0.0.1:5000/home)
